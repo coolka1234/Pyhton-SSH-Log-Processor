@@ -1,10 +1,10 @@
 import re
 def get_messege_type(log):
     success_pattern = r'check pass'
-    fail_pattern = r'authentication failure'
-    disconnect_pattern = r'disconnect'
-    failed_password_pattern = r'Failed password'
-    invalid_user_pattern = r'invalid user'
+    fail_pattern = r'authentication failure|authentication failures'
+    disconnect_pattern = r'disconnect|Connection closed'
+    failed_password_pattern = r'Failed password|failed password'
+    invalid_user_pattern = r'invalid user|Invalid user'
     break_in_attempt_pattern = r'POSSIBLE BREAK-IN ATTEMPT!'
     if re.search(success_pattern, log['description']):
         return 'success_login'

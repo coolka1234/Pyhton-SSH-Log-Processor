@@ -9,7 +9,10 @@ def ssh_to_dict(SSH_log):
         log_dict['time'] = data_list[2]
         log_dict['username'] = data_list[3]
         log_dict['pid'] = data_list[4]
-        log_dict['description'] = log[1]
+        if(len(log)>2):
+            log_dict['description'] = log[1] + log[2]
+        else:
+            log_dict['description'] = log[1]
     except Exception:
         log_dict['description'] = "incorrect log format"
     return log_dict
