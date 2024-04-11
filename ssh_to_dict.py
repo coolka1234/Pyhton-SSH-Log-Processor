@@ -2,17 +2,16 @@ import sys
 def ssh_to_dict(SSH_log):
     log_dict = {}
     try:
-        data, description= SSH_log.split(':')
-        month, day, time, app_component, username, pid = data.split()
-        log_dict['month'] = month
-        log_dict['day'] = day
-        log_dict['time'] = time
-        log_dict['app_component'] = app_component
-        log_dict['username'] = username
-        log_dict['pid'] = pid
-        log_dict['description'] = description
+        log= SSH_log.split(': ')
+        data_list = log[0].split()
+        log_dict['month'] = data_list[0]
+        log_dict['day'] = data_list[1]
+        log_dict['time'] = data_list[2]
+        log_dict['username'] = data_list[3]
+        log_dict['pid'] = data_list[4]
+        log_dict['description'] = log[1]
     except Exception:
-        log_dict[description] = "incorrect log format"
+        log_dict['description'] = "incorrect log format"
     return log_dict
 def file_to_dict_stream(file_name):
     dict_list = []
