@@ -18,12 +18,14 @@ def random_logs_random_user(n, fileName):
     file=open(fileName, 'r')
     for f in file:
         f=ssh_to_dict.ssh_to_dict(f)
-        if get_user_from_log.get_user_log(f) == chosen_user:
-            rand_logs.append(f)
-            n = n-1
-            if n == 0:
-                break
+        current_user = get_user_from_log.get_user_log(f)
+        if current_user is not None:
+            if chosen_user in current_user:
+                rand_logs.append(f)
     file.close()
-    return rand_logs
+    if n>len(rand_logs):
+        return rand_logs
+    final_logs=random.sample(rand_logs, n)
+    return final_logs
 if __name__ == "__main__":
-    print(random_logs_random_user(5, 'SSH.log'))
+    print(random_logs_random_user(1, 'SSH.log'))
