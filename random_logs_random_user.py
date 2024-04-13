@@ -1,3 +1,4 @@
+import sys
 import get_user_from_log
 import random
 import ssh_to_dict
@@ -28,4 +29,8 @@ def random_logs_random_user(n, fileName):
     final_logs=random.sample(rand_logs, n)
     return final_logs
 if __name__ == "__main__":
-    print(random_logs_random_user(1, 'SSH.log'))
+    try:
+        print(random_logs_random_user(sys.argv[2], sys.argv[1]))
+    except:
+        print("Usage: python random_logs_random_user.py <fileName> <n>")
+        sys.exit(1)
