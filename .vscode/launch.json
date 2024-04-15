@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "args": ["SSH.log"],
+            "args": ["random_logs_random_user SSH.log 10"],
         }
     ]
 }
