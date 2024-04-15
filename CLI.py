@@ -5,27 +5,21 @@ def main():
     parser = argparse.ArgumentParser(description="Utility CLI for various log processing scripts.")
     subparsers = parser.add_subparsers(title="subcommands", dest="subcommand")
 
-    # Subparser for get_ipv4s_from_log
     ipv4s_parser = subparsers.add_parser("get_ipv4s_from_log", description="Extract IPv4s from log file.")
     ipv4s_parser.add_argument("fileName", help="Name of the log file")
     ipv4s_parser.add_argument("-l", "--log-level", default="INFO", help="Minimal logging level")
 
-    # Subparser for get_message_type
     message_type_parser = subparsers.add_parser("get_message_type", description="Get message types from log file.")
     message_type_parser.add_argument("fileName", help="Name of the log file")
     message_type_parser.add_argument("-l", "--log-level", default="INFO", help="Minimal logging level")
 
-    # Subparser for log_statistic
     statistic_parser = subparsers.add_parser("log_statistic", description="Get statistics from log file.")
     statistic_parser.add_argument("fileName", help="Name of the log file")
     statistic_parser.add_argument("-l", "--log-level", default="INFO", help="Minimal logging level")
 
-    # Subparser for print_dicts
     print_dicts_parser = subparsers.add_parser("print_dicts", description="Print dictionaries from log file.")
     print_dicts_parser.add_argument("fileName", help="Name of the log file")
     print_dicts_parser.add_argument("-l", "--log-level", default="INFO", help="Minimal logging level")
-
-    # Subparser for random_logs_random_user
     random_logs_parser = subparsers.add_parser("random_logs_random_user", description="Generate random logs for a user.")
     random_logs_parser.add_argument("fileName", help="Name of the log file")
     random_logs_parser.add_argument("-l","--log-level" default="INFO", help="Minimal logging level")
