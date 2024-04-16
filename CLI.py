@@ -22,7 +22,7 @@ def main():
     print_dicts_parser.add_argument("-l", "--log-level", default="INFO", help="Minimal logging level")
     random_logs_parser = subparsers.add_parser("random_logs_random_user", description="Generate random logs for a user.")
     random_logs_parser.add_argument("fileName", help="Name of the log file")
-    random_logs_parser.add_argument("-l","--log-level" default="INFO", help="Minimal logging level")
+    random_logs_parser.add_argument("-l","--log-level", default="INFO", help="Minimal logging level")
 
     args = parser.parse_args()
 
